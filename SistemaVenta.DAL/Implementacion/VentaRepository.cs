@@ -28,7 +28,7 @@ namespace SistemaVenta.DAL.Implementacion
             {
                 try
                 {
-                    foreach (DetalleVenta dv in entidad.DetalleVenta)
+                    foreach (DetalleVenta dv in entidad.DetalleVenta)  // A partir de la iteracion de productos, reducimos el stock !!
                     {
                         Producto producto_encontrado = _dbContext.Productos.Where(p => p.IdProducto == dv.IdProducto).First();
                         producto_encontrado.Stock = producto_encontrado.Stock - dv.Cantidad;
@@ -50,12 +50,12 @@ namespace SistemaVenta.DAL.Implementacion
 
                     entidad.NumeroVenta = numeroVenta;
 
-                    await _dbContext.Venta.AddAsync(entidad);
+                    await _dbContext.Venta.AddAsync(entidad); // La entidad es todo el objeto de venta
                     await _dbContext.SaveChangesAsync();
 
                     ventaGenerada = entidad;
 
-                    transaction.Commit();
+                    transaction.Commit(); // El commit hace que nuestros registros pasen de temporales a netos.
                 }
                 catch (Exception ex)
                 {
@@ -72,13 +72,12 @@ namespace SistemaVenta.DAL.Implementacion
         public async Task<List<DetalleVenta>> Reporte(DateTime FechaInicio, DateTime FechaFin)
         {
             List<DetalleVenta> listaResumen = await _dbContext.DetalleVenta
-                .Include(v => v.IdVentaNavigation)
+                .Include(v => v.IdVentaNavigation) // Sirve como un join entre tablas.
                 .ThenInclude(u => u.IdUsuarioNavigation)
                 .Include(v => v.IdVentaNavigation)
                 .ThenInclude(tdv=> tdv.IdTipoDocumentoVentaNavigation)
                 .Where(dv=>dv.IdVentaNavigation.FechaRegistro.Value.Date >= FechaInicio.Date &&
-                dv.IdVentaNavigation.FechaRegistro.Value.Date <= FechaFin.Date)
-                .ToListAsync();
+                 dv.IdVentaNavigation.FechaRegistro.Value.Date <= FechaFin.Date).ToListAsync();
 
             return listaResumen;
         }

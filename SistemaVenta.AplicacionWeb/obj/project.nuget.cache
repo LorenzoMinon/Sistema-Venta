@@ -1,11 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "BbmYIshqyrQ7g5p3F4NXxLxTzYLXasdnYxl7ZicO2amEzBllQXSp6b/5r+Y1m6ZW8kNyosUMuYj+vF3XqYJRIA==",
+  "dgSpecHash": "yWyjvgj3aE10k4I5WtoN92ba3rX4OJIwpmA/rLfal2nsUtDqsPIvcnOodr8l2gxdk8uuv1phY+1i5pyQAOmCWg==",
   "success": true,
   "projectFilePath": "C:\\Users\\loren\\Desktop\\Ingeniería de Software\\TrabajoFinal\\SolucionSistemaVenta\\SistemaVenta.AplicacionWeb\\SistemaVenta.AplicacionWeb.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\loren\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\loren\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
+    "C:\\Users\\loren\\.nuget\\packages\\firebaseauthentication.net\\3.7.2\\firebaseauthentication.net.3.7.2.nupkg.sha512",
+    "C:\\Users\\loren\\.nuget\\packages\\firebasestorage.net\\1.0.3\\firebasestorage.net.1.0.3.nupkg.sha512",
     "C:\\Users\\loren\\.nuget\\packages\\humanizer\\2.14.1\\humanizer.2.14.1.nupkg.sha512",
     "C:\\Users\\loren\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\loren\\.nuget\\packages\\humanizer.core.af\\2.14.1\\humanizer.core.af.2.14.1.nupkg.sha512",

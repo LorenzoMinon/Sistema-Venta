@@ -10,13 +10,13 @@ using SistemaVenta.DAL.DBContext;
 using Microsoft.EntityFrameworkCore;
 using SistemaVenta.DAL.Implementacion;
 using SistemaVenta.DAL.Interfaces;
-//using SistemaVenta.BLL.Interfaces;
-//using SistemaVenta.BLL.Implementacion;
+using SistemaVenta.BLL.Interfaces;
+using SistemaVenta.BLL.Implementacion;
 
 namespace SistemaVenta.IOC
 {
     public static class Dependencia
-    {
+    { // este código facilita la configuración de la inyección de dependencias para el acceso a datos y los repositorios de venta.
         public static void InyectarDependencia(this IServiceCollection services, IConfiguration Configuration)
         {
             services.AddDbContext<DbventaContext>(options =>
@@ -27,6 +27,11 @@ namespace SistemaVenta.IOC
             services.AddTransient(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 
             services.AddScoped<IVentaRepository, VentaRepository>();
+
+            services.AddScoped<ICorreoService, CorreoService>();
+
+            services.AddScoped<IFireBaseService, FireBaseService>();
+
 
         }
         
