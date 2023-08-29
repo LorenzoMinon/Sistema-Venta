@@ -15,6 +15,20 @@ let tablaData;
 //jquery
 $(document).ready(function () {
 
+    fetch("/Usuario/ListaRoles")
+        .then(response => {
+            return response.ok ? response.json() : Promise.reject(response);
+        })
+        .then(responseJson => {
+            if (responseJson.length > 0) {
+                responseJson.forEach((item) => {
+                    $("#cboRol").append(
+                        $("<option>").val(item.idRol).text(item.descripcion)
+                    )
+                })
+            }
+        })
+
     tablaData = $('#tbdata').DataTable({
         responsive: true,
          "ajax": {
@@ -66,4 +80,21 @@ $(document).ready(function () {
             url: "https://cdn.datatables.net/plug-ins/1.11.5/i18n/es-ES.json"
         },
     });
+})
+
+function mostrarModal(modelo = MODELO_BASE) { //con jquery
+    $("#txtId").val(modelo.idUsuario)
+    $("#txtNombre").val(modelo.nombre)
+    $("#txtCorreo").val(modelo.correo)
+    $("#txtTelefono").val(modelo.telefono)
+    $("#cboRol").val(modelo.idRol == 0 ? $("#cboRol option:first").val() : modelo.idRol)
+    $("#cboEstado").val(modelo.esActivo)
+    $("#txtFoto").val("")
+    $("#imgUsuario").attr("src", modelo.urlFoto)
+
+    $("#modalData").modal("show")
+}
+
+$("#btnNuevo").click(function () {
+    mostrarModal()
 })
