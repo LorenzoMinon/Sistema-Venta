@@ -187,3 +187,59 @@ $("#tbdata tbody").on("click", ".btn-editar", function () {
     mostrarModal(data);
 
 })
+
+
+$("#tbdata tbody").on("click", ".btn-eliminar", function () {
+
+    let fila;
+    if ($(this).closest("tr").hasClass("child")) {
+        fila = $(this).closest("tr").prev();
+    } else {
+        fila = $(this).closest("tr");
+    }
+
+    const data = tablaData.row(fila).data();
+
+    swal({
+        title: "¿Está seguro?",
+        text: `Eliminar al usuario "${data.nombre}"`,
+        type: "warning",
+        showCancelButton: true,
+        confirmButtonClass: "btn-danger",
+        confirmButtonText: "Si, eliminar",
+        cancelButtonText: "No, cancelar",
+        closeOnConfirm: false,
+        closeOnCancel: true
+    },
+        function (respuesta) {
+
+            if (respuesta) {
+
+                $(".showSweetAlert").LoadingOverlay("show");
+
+                fetch(`/Usuario/Eliminar?IdUsuario=${data.idUsuario}`, {
+                    method: "DELETE"
+                })
+                    .then(response => {
+                        $(".showSweetAlert").LoadingOverlay("hide");
+                        return response.ok ? response.json() : Promise.reject(response);
+                    })
+                    .then(responseJson => {
+
+                        if (responseJson.estado) {
+
+                            tablaData.row(fila).remove().draw()
+
+                            swal("Listo!", "El usuario fue eliminado", "success")
+                        } else {
+                            swal("Los sentimos", responseJson.mensaje, "error")
+                        }
+                    })
+
+
+            }
+        }
+    )
+
+
+})

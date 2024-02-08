@@ -63,7 +63,7 @@ namespace SistemaVenta.BLL.Implementacion
             }
         }
 
-        public async Task<Producto> Editar(Producto entidad, Stream imagen = null)
+        public async Task<Producto> Editar(Producto entidad, Stream imagen = null, string NombreImagen = "")
         {
             Producto producto_existe = await _repositorio.Obtener(p => p.CodigoBarra == entidad.CodigoBarra && p.IdProducto != entidad.IdProducto); 
 
@@ -81,6 +81,11 @@ namespace SistemaVenta.BLL.Implementacion
                 producto_para_editar.IdCategoria = entidad.IdCategoria;
                 producto_para_editar.Precio = entidad.Precio;
                 producto_para_editar.EsActivo = entidad.EsActivo;
+
+                if(producto_para_editar.NombreImagen == "")
+                {
+                    producto_para_editar.NombreImagen = NombreImagen;
+                }
 
                 if(imagen != null)
                 {
