@@ -51,7 +51,7 @@ namespace SistemaVenta.AplicacionWeb.Controllers
             GenericResponse<VMVenta> gResponse = new GenericResponse<VMVenta>();
             try
             {
-                modelo.IdUsuario = 10; //Hardcodeado hasta implementar logueo.
+                //modelo.IdUsuario = 10; Hardcodeado hasta implementar logueo.
 
                 Venta venta_creada = await _ventaServicio.Registrar(_mapper.Map<Venta>(modelo));
                 modelo = _mapper.Map<VMVenta>(venta_creada);
