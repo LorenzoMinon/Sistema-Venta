@@ -13,7 +13,9 @@ namespace SistemaVenta.AplicacionWeb.Controllers
         private readonly ITipoDocumentoVentaService _tipoDocumentoVentaServicio;
         private readonly IVentaService _ventaServicio;
         private readonly IMapper _mapper;
-        public VentaController(ITipoDocumentoVentaService tipoDocumentoVentaServicio, IVentaService ventaServicio, IMapper mapper)
+        public VentaController(ITipoDocumentoVentaService tipoDocumentoVentaServicio,
+            IVentaService ventaServicio,
+            IMapper mapper)
         {
             _tipoDocumentoVentaServicio = tipoDocumentoVentaServicio;
             _ventaServicio = ventaServicio;
@@ -31,9 +33,11 @@ namespace SistemaVenta.AplicacionWeb.Controllers
         [HttpGet]
         public async Task<IActionResult> ListaTipoDocumentoVenta()
         {
-            List<VMTipoDocumentoVenta> vmListaTipoDocumentos = _mapper.Map <List<VMTipoDocumentoVenta>>(await _tipoDocumentoVentaServicio.Lista());
+            List<VMTipoDocumentoVenta> vmListaTipoDocumentos = _mapper.Map<List<VMTipoDocumentoVenta>>( await _tipoDocumentoVentaServicio.Lista());
             return StatusCode(StatusCodes.Status200OK, vmListaTipoDocumentos);
         }
+
+        [HttpGet]
         public async Task<IActionResult> ObtenerProductos(string busqueda)
         {
             List<VMProducto> vmListaProductos = _mapper.Map<List<VMProducto>>(await _ventaServicio.ObtenerProductos(busqueda));

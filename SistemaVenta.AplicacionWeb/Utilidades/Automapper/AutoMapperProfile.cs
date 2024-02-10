@@ -92,7 +92,7 @@ namespace SistemaVenta.AplicacionWeb.Utilidades.Automapper
 
             #endregion
             #region TipoDocumentoVenta
-            CreateMap<VMTipoDocumentoVenta, VMTipoDocumentoVenta>().ReverseMap();
+            CreateMap<TipoDocumentoVenta, VMTipoDocumentoVenta>().ReverseMap();
             #endregion
             #region Venta 
             CreateMap<Venta, VMVenta>()
