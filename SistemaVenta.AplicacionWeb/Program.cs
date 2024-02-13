@@ -2,6 +2,10 @@ using SistemaVenta.AplicacionWeb.Utilidades.Automapper;
 
 using SistemaVenta.IOC;
 
+using SistemaVenta.AplicacionWeb.Utilidades.Extensiones;
+using DinkToPdf;
+using DinkToPdf.Contracts;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,7 +16,14 @@ builder.Services.InyectarDependencia(builder.Configuration); // Con esto tomamos
 
 builder.Services.AddAutoMapper(typeof(AutoMapperProfile)); // Agregamos la configuración de automapper para poder usarla en todo el proyecto.
 
+var context = new CustomAssemblyLoadContext();
+context.LoadUnmanagedLibrary(Path.Combine(Directory.GetCurrentDirectory(), "Utilidades/LibreriaPDF/libwkhtmltox.dll"));
+builder.Services.AddSingleton(typeof(IConverter), new SynchronizedConverter(new PdfTools())); //Aca aplicamos el singleton!
+
+
 var app = builder.Build();
+
+
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

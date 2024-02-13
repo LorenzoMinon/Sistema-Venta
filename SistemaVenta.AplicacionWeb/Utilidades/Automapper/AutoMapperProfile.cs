@@ -72,7 +72,7 @@ namespace SistemaVenta.AplicacionWeb.Utilidades.Automapper
                     opt => opt.MapFrom(origen => origen.IdCategoriaNavigation.Descripcion)
                 )
                 .ForMember(destino =>
-                    destino.NombreCategoria,
+                    destino.Precio,
                     opt => opt.MapFrom(origen => Convert.ToString(origen.Precio.Value, new CultureInfo("es-AR"))
                 ));
 
