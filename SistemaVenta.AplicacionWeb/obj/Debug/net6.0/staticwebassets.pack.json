@@ -61,6 +61,10 @@
       "PackagePath": "staticwebassets\\js\\vistas\\Nueva_Venta.js"
     },
     {
+      "Id": "C:\\Users\\loren\\Desktop\\Ingeniería de Software\\TrabajoFinal\\SolucionSistemaVenta\\SistemaVenta.AplicacionWeb\\wwwroot\\js\\vistas\\Reporte_index.js",
+      "PackagePath": "staticwebassets\\js\\vistas\\Reporte_index.js"
+    },
+    {
       "Id": "C:\\Users\\loren\\Desktop\\Ingeniería de Software\\TrabajoFinal\\SolucionSistemaVenta\\SistemaVenta.AplicacionWeb\\wwwroot\\js\\vistas\\Usuario_Index.js",
       "PackagePath": "staticwebassets\\js\\vistas\\Usuario_Index.js"
     },
