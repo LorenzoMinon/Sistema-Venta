@@ -48,6 +48,8 @@ namespace SistemaVenta.IOC
 
             services.AddScoped<IVentaService, VentaService>();
 
+            services.AddScoped<IDashBoardService, DashBoardService>();
+
         }
         
     }
