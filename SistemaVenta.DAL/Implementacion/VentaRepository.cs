@@ -13,9 +13,9 @@ namespace SistemaVenta.DAL.Implementacion
 {
     public class VentaRepository : GenericRepository<Venta>, IVentaRepository
     {
-        private readonly DbventaContext _dbContext;
+        private readonly DBVENTAContext _dbContext;
 
-        public VentaRepository(DbventaContext dbContex) : base(dbContex)
+        public VentaRepository(DBVENTAContext dbContex) : base(dbContex)
         {
             _dbContext = dbContex;
         }
@@ -75,8 +75,8 @@ namespace SistemaVenta.DAL.Implementacion
                 .Include(v => v.IdVentaNavigation) // Sirve como un join entre tablas.
                 .ThenInclude(u => u.IdUsuarioNavigation)
                 .Include(v => v.IdVentaNavigation)
-                .ThenInclude(tdv=> tdv.IdTipoDocumentoVentaNavigation)
-                .Where(dv=>dv.IdVentaNavigation.FechaRegistro.Value.Date >= FechaInicio.Date &&
+                .ThenInclude(tdv => tdv.IdTipoDocumentoVentaNavigation)
+                .Where(dv => dv.IdVentaNavigation.FechaRegistro.Value.Date >= FechaInicio.Date &&
                  dv.IdVentaNavigation.FechaRegistro.Value.Date <= FechaFin.Date).ToListAsync();
 
             return listaResumen;

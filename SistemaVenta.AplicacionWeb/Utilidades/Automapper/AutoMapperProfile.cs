@@ -14,7 +14,8 @@ namespace SistemaVenta.AplicacionWeb.Utilidades.Automapper
         {
             #region Rol 
             CreateMap<Rol, VMRol>().ReverseMap();
-            #endregion
+            #endregion Rol
+
             #region Usuario
             CreateMap<Usuario, VMUsuario>()
                 .ForMember(destino =>

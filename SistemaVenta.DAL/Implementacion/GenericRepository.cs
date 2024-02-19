@@ -13,11 +13,11 @@ namespace SistemaVenta.DAL.Implementacion
 {
     public class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : class
     {
-        private readonly DbventaContext _dbContext;
+        private readonly DBVENTAContext _dbContext;
         //GenericRepository tiene una dependencia en un objeto DbventaContext, que se proporciona a través del constructor al crear una instancia de la clase.
         //Esto permite que la instancia del repositorio tenga acceso a la instancia
         //de DbventaContext para realizar operaciones de lectura y escritura en la base de datos.
-        public GenericRepository(DbventaContext dbContext)
+        public GenericRepository(DBVENTAContext dbContext)
         {
             _dbContext = dbContext;
         }

@@ -15,16 +15,16 @@ namespace SistemaVenta.BLL.Implementacion
         public string GenerarClave() 
         {
 
-            string clave = Guid.NewGuid().ToString("N").Substring(0, 6); //Retorna una cadena de texto aleatoria y con el ToString le damos formato.
+            string clave = Guid.NewGuid().ToString("N").Substring(0,6); //Retorna una cadena de texto aleatoria y con el ToString le damos formato.
 
             return clave;
         }
-            
+
         public string ConvertirSha256(string texto)
         {
             StringBuilder sb = new StringBuilder();
 
-            using (SHA256 hash = SHA256Managed.Create()) //Creamos el objeto para encriptar el texto
+            using (SHA256 hash = SHA256.Create()) // Utilizamos el método Create() en lugar de SHA256Managed.Create()
             {
                 Encoding enc = Encoding.UTF8;
 
@@ -36,8 +36,9 @@ namespace SistemaVenta.BLL.Implementacion
                 }
             }
             return sb.ToString();
-
         }
+
+
 
     }
 }

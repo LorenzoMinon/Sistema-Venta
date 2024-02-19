@@ -37,7 +37,7 @@ namespace SistemaVenta.BLL.Implementacion
             {
                 return await _repositorioVenta.Registrar(entidad);
             }
-            catch (Exception ex)
+            catch 
             {
                 throw;
             }
@@ -66,35 +66,34 @@ namespace SistemaVenta.BLL.Implementacion
             else //historial por nro de vta
             {
                 return query.Where(v => v.NumeroVenta == numeroVenta)
-                    .Include(tdv => tdv.IdTipoDocumentoVentaNavigation)
-                    .Include(u => u.IdUsuarioNavigation)
-                    .Include(dv => dv.DetalleVenta)
-                    .ToList();
+                     .Include(tdv => tdv.IdTipoDocumentoVentaNavigation)
+                     .Include(u => u.IdUsuarioNavigation)
+                     .Include(dv => dv.DetalleVenta)
+                     .ToList();
             }
+
         }
+
         public async Task<Venta> Detalle(string numeroVenta)
         {
-            IQueryable<Venta> query = await _repositorioVenta.Consultar(v=> v.NumeroVenta == numeroVenta);
+            IQueryable<Venta> query = await _repositorioVenta.Consultar(v => v.NumeroVenta == numeroVenta);
+
             return query
-                .Include(tdv => tdv.IdTipoDocumentoVentaNavigation)
-                .Include(u => u.IdUsuarioNavigation)
-                .Include(dv => dv.DetalleVenta)
-                .First();
+                      .Include(tdv => tdv.IdTipoDocumentoVentaNavigation)
+                      .Include(u => u.IdUsuarioNavigation)
+                      .Include(dv => dv.DetalleVenta)
+                      .First();
         }
+
+
         public async Task<List<DetalleVenta>> Reporte(string fechaInicio, string fechaFin)
         {
-            DateTime fecha_inicio = DateTime.ParseExact(fechaInicio, "dd/MM/yyyy", new CultureInfo("es-AR"));
-            DateTime fecha_fin = DateTime.ParseExact(fechaFin, "dd/MM/yyyy", new CultureInfo("es-AR"));
+            DateTime fech_inicio = DateTime.ParseExact(fechaInicio, "dd/MM/yyyy", new CultureInfo("es-AR"));
+            DateTime fech_fin = DateTime.ParseExact(fechaFin, "dd/MM/yyyy", new CultureInfo("es-AR"));
 
-            List<DetalleVenta> lista = await _repositorioVenta.Reporte(fecha_inicio, fecha_fin);
+            List<DetalleVenta> lista = await _repositorioVenta.Reporte(fech_inicio, fech_fin);
+
             return lista;
-
         }
-
-
-
-
-
-
     }
 }
