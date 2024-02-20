@@ -3,9 +3,12 @@
 using AutoMapper;
 using SistemaVenta.AplicacionWeb.Models.ViewModels;
 using SistemaVenta.BLL.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 
 namespace SistemaVenta.AplicacionWeb.Controllers
 {
+    [Authorize]
+
     public class ReporteController : Controller
     {
         private readonly IMapper _mapper;
