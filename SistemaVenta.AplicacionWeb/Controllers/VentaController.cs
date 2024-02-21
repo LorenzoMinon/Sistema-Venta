@@ -9,6 +9,7 @@ using SistemaVenta.Entity;
 using DinkToPdf;
 using DinkToPdf.Contracts;
 using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
 
 namespace SistemaVenta.AplicacionWeb.Controllers
 {
@@ -61,7 +62,14 @@ namespace SistemaVenta.AplicacionWeb.Controllers
             GenericResponse<VMVenta> gResponse = new GenericResponse<VMVenta>();
             try
             {
-                //modelo.IdUsuario = 10; Hardcodeado hasta implementar logueo.
+                ClaimsPrincipal claimUser = HttpContext.User;
+
+                string idUsuario = claimUser.Claims
+                    .Where(c => c.Type == ClaimTypes.NameIdentifier) //Propiedad declarada en acceso controller
+                    .Select(c => c.Value).SingleOrDefault();
+
+                modelo.IdUsuario = int.Parse(idUsuario);
+
 
                 Venta venta_creada = await _ventaServicio.Registrar(_mapper.Map<Venta>(modelo));
                 modelo = _mapper.Map<VMVenta>(venta_creada);
