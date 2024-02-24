@@ -1,14 +1,13 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Mi negocio - @ViewData["Title"]</title>
+    <title>Mi Tienda - @ViewData["Title"]</title>
 
     <!-- Custom fonts for this template-->
     <link href="~/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -19,9 +18,9 @@
     <link href="~/vendor/toastr/toastr.min.css" rel="stylesheet">
     <link href="~/vendor/sweetalert/sweetalert.css" rel="stylesheet">
     @await RenderSectionAsync("Estilos", required: false)
-
 </head>
-<body>
+<body id="page-top">
+
     <!-- Page Wrapper -->
     <div id="wrapper">
 
@@ -33,77 +32,74 @@
                 <div class="sidebar-brand-icon">
                     <i class="fas fa-desktop"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">Mi negocio</div>
+                <div class="sidebar-brand-text mx-3">MI TIENDA</div>
             </a>
 
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
 
             @await Component.InvokeAsync("Menu")
-
             <!-- Nav Item - Dashboard -->
-@*            <li class="nav-item">
-                <a class="nav-link" href="@Url.Action("Index","DashBoard")">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span>
-                </a>
+            @*   <li class="nav-item">
+            <a class="nav-link" href="@Url.Action("Index","DashBoard")">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Dashboard</span></a>
             </li>
-*@
+            *@
             <!-- Nav Item - Administración Collapse Menu -->
-@*            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseAdministracion">
-                    <i class="fas fa-fw fa-cog"></i>
-                    <span>Administración</span>
-                </a>
-                <div id="collapseAdministracion" class="collapse" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="@Url.Action("Index","Usuario")">Usuarios</a> <!--/Usamos index que esta en el contr. Usuarios-->
-                        <a class="collapse-item" href="@Url.Action("Index","Negocio")">Negocio</a>
-                    </div>
-                </div>
+            @*     <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseAdministracion">
+            <i class="fas fa-fw fa-cog"></i>
+            <span>Administración</span>
+            </a>
+            <div id="collapseAdministracion" class="collapse" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item" href="@Url.Action("Index","Usuario")">Usuarios</a>
+            <a class="collapse-item" href="@Url.Action("Index","Negocio")">Negocio</a>
+            </div>
+            </div>
             </li>*@
 
             <!-- Nav Item - Inventario Collapse Menu -->
-@*            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseInventario">
-                    <i class="fas fa-fw fa-clipboard-list"></i>
-                    <span>Inventario</span>
-                </a>
-                <div id="collapseInventario" class="collapse" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="@Url.Action("Index","Categoria")">Categorias</a>
-                        <a class="collapse-item" href="@Url.Action("Index","Producto")">Productos</a>
-                    </div>
-                </div>
-            </li>*@
-
+            @*  <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseInventario">
+            <i class="fas fa-fw fa-clipboard-list"></i>
+            <span>Inventario</span>
+            </a>
+            <div id="collapseInventario" class="collapse" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item" href="@Url.Action("Index","Categoria")">Categorias</a>
+            <a class="collapse-item" href="@Url.Action("Index","Producto")">Productos</a>
+            </div>
+            </div>
+            </li>
+            *@
             <!-- Nav Item - Venta Collapse Menu -->
-@*            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseVenta">
-                    <i class="fas fa-fw fa-tags"></i>
-                    <span>Ventas</span>
-                </a>
-                <div id="collapseVenta" class="collapse" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="@Url.Action("NuevaVenta","Venta")">Nueva Venta</a>
-                        <a class="collapse-item" href="@Url.Action("HistorialVenta","Venta")">Historial Venta</a>
-                    </div>
-                </div>
+            @*   <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseVenta">
+            <i class="fas fa-fw fa-tags"></i>
+            <span>Ventas</span>
+            </a>
+            <div id="collapseVenta" class="collapse" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item" href="@Url.Action("NuevaVenta","Venta")">Nueva Venta</a>
+            <a class="collapse-item" href="@Url.Action("HistorialVenta","Venta")">Historial Venta</a>
+            </div>
+            </div>
             </li>*@
 
             <!-- Nav Item - Reportes Collapse Menu -->
-@*            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseReportes">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Reportes</span>
-                </a>
-                <div id="collapseReportes" class="collapse" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="@Url.Action("Index","Reporte")">Reporte de Ventas</a>
-                    </div>
-                </div>
+            @*<li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseReportes">
+            <i class="fas fa-fw fa-chart-area"></i>
+            <span>Reportes</span>
+            </a>
+            <div id="collapseReportes" class="collapse" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item" href="@Url.Action("Index","Reporte")">Reporte de Ventas</a>
+            </div>
+            </div>
             </li>*@
-@*            
 
             <!-- Divider -->
             <hr class="sidebar-divider">
@@ -132,29 +128,30 @@
 
                         <div class="topbar-divider d-none d-sm-block"></div>
 
-@*                        <!-- Nav Item - User Information -->
-                        <li class="nav-item dropdown no-arrow">
-                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
-                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Usuario Genérico</span>
-                                <img class="img-profile rounded-circle"
-                                     src="https://images.unsplash.com/photo-1519648023493-d82b5f8d7b8a?w=300">
-                            </a>
-                            <!-- Dropdown - User Information -->
-                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                                 aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="@Url.Action("Perfil","Home")">
-                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Perfil
-                                </a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Salir
-                                </a>
-                            </div>
+                        <!-- Nav Item - User Information -->
+                        @* <li class="nav-item dropdown no-arrow">
+                        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+                        <img class="img-profile rounded-circle"
+                        src="https://images.unsplash.com/photo-1519648023493-d82b5f8d7b8a?w=300">
+                        </a>
+                        <!-- Dropdown - User Information -->
+                        <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                        aria-labelledby="userDropdown">
+                        <a class="dropdown-item" href="@Url.Action("Perfil","Home")">
+                        <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                        Perfil
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                        <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                        Salir
+                        </a>
+                        </div>
                         </li>*@
                         @await Component.InvokeAsync("MenuUsuario")
+
                     </ul>
 
                 </nav>
@@ -195,7 +192,6 @@
     <script src="~/vendor/sweetalert/sweetalert.js"></script>
     <script src="~/vendor/loadingoverlay/loadingoverlay.min.js"></script>
     @await RenderSectionAsync("Scripts", required: false)
-
-
 </body>
 </html>
+

@@ -127,13 +127,13 @@ namespace SistemaVenta.AplicacionWeb.Controllers
         }
 
         [HttpDelete]
-        public async Task<IActionResult> Eliminar(int idUsuario)
+        public async Task<IActionResult> Eliminar(int IdUsuario)
         {
             GenericResponse<string> gResponse = new GenericResponse<string>();
 
             try
             {
-                gResponse.Estado = await _usuarioServicio.Eliminar(idUsuario);
+                gResponse.Estado = await _usuarioServicio.Eliminar(IdUsuario);
             }
 
             catch(Exception ex)

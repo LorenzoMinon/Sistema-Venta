@@ -7,24 +7,22 @@ using System.Threading.Tasks;
 using SistemaVenta.BLL.Interfaces;
 using System.Security.Cryptography;
 
-
 namespace SistemaVenta.BLL.Implementacion
 {
     public class UtilidadesService : IUtilidadesService
-    { 
-        public string GenerarClave() 
+    {
+
+        public string GenerarClave()
         {
-
-            string clave = Guid.NewGuid().ToString("N").Substring(0,6); //Retorna una cadena de texto aleatoria y con el ToString le damos formato.
-
+            string clave = Guid.NewGuid().ToString("N").Substring(0, 6);
             return clave;
         }
-
         public string ConvertirSha256(string texto)
         {
+
             StringBuilder sb = new StringBuilder();
 
-            using (SHA256 hash = SHA256.Create()) // Utilizamos el método Create() en lugar de SHA256Managed.Create()
+            using (SHA256 hash = SHA256.Create())
             {
                 Encoding enc = Encoding.UTF8;
 
@@ -34,10 +32,12 @@ namespace SistemaVenta.BLL.Implementacion
                 {
                     sb.Append(b.ToString("x2"));
                 }
-            }
-            return sb.ToString();
-        }
 
+            }
+
+            return sb.ToString();
+
+        }
 
 
     }
