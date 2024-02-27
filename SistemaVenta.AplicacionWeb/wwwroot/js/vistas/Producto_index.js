@@ -90,11 +90,11 @@ function mostrarModal(modelo = MODELO_BASE) { //con jquery y sacando del index.c
     $("#txtMarca").val(modelo.marca)
     $("#txtDescripcion").val(modelo.descripcion)
     $("#cboCategoria").val(modelo.idCategoria == 0 ? $("#cboCategoria option:first").val() : modelo.idCategoria)
-    $("#cboStock").val(modelo.stock)
+    $("#txtStock").val(modelo.stock)
     $("#txtPrecio").val(modelo.precio)
-    $("#txtEstado").val(modelo.esActivo)
+    $("#cboEstado").val(modelo.esActivo)
     $("#txtImagen").val("")
-    $("#ImgProducto").attr("src", modelo.urlImagen)
+    $("#imgProducto").attr("src", modelo.urlImagen)
 
     $("#modalData").modal("show")
 }

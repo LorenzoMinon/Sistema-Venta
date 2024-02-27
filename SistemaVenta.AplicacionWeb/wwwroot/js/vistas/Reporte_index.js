@@ -10,7 +10,7 @@ $(document).ready(function () {
     tablaData = $('#tbdata').DataTable({
         responsive: true,
         "ajax": {
-            "url": '/Reporte/ReporteVenta?fechaInicio=01/01/1991&fechaFin=14/02/2024',
+            "url": '/Reporte/ReporteVenta?fechaInicio=01/01/1991&fechaFin=01/01/1991',
             "type": "GET",
             "datatype": "json"
         },
