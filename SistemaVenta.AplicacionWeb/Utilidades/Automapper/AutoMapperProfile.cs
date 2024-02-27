@@ -98,7 +98,7 @@ namespace SistemaVenta.AplicacionWeb.Utilidades.Automapper
             #region Venta 
             CreateMap<Venta, VMVenta>()
                 .ForMember(destino =>
-                    destino.IdTipoDocumentoVenta,
+                    destino.TipoDocumentoVenta,
                     opt => opt.MapFrom(origen => origen.IdTipoDocumentoVentaNavigation.Descripcion)
                 )
                 .ForMember(destino =>
